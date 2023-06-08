@@ -11,7 +11,7 @@
     <script src="https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
 
     <!-- Liens vers les fichiers JS -->
-    <script src="js/app_inscription.js" defer></script>
+    <script src="js/app.js" defer></script>
     <script src="json/221410_A.json" defer></script>
     <script src="json/221410_B.json" defer></script>
     <script src="json/244138_A.json" defer></script>
@@ -21,6 +21,13 @@
 </head>
 
 <body>
+    <?php
+    $jsonString1 = file_get_contents('json/221410_A.json');
+    $jsonString2 = file_get_contents('json/221410_B.json');
+    $jsonString3 = file_get_contents('json/244138_A.json');
+    $jsonString4 = file_get_contents('json/244138_B.json');
+    ?>
+
 
 </body>
 

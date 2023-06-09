@@ -1,5 +1,23 @@
 #tab {
     display: flex;
-    padding: 0 2rem;
+    padding-top: 2rem;
 
+}
+
+#tab2 {
+    display: flex;
+    padding-top: 2rem;
+}
+
+#firsttab {
+    background-color: pink;
+}
+
+#secondtab {
+    margin: 0rem 0 0 2rem;
+    background-color: aqua;
+}
+
+#thirsttab {
+    background-color: blanchedalmond;
 }

@@ -28,8 +28,9 @@
     $data2 = json_decode($jsonString2, true);
     $data3 = json_decode($jsonString3, true);
     $data4 = json_decode($jsonString4, true);
-
-    $targetName = "ssp_25Myr_z008.dat"; // Le nom recherché
+    // liste des tableaux en fonction du redshift, et des continuumName
+    $targetName = "0.8182060549";
+    $targetName2 = "1.91756782"; // Le nom recherché
     ?>
 
     <section id="tab">
@@ -71,7 +72,7 @@
             foreach ($data3 as $data) {
                 $continuumName = $data["ContinuumName"];
 
-                if ($continuumName == $targetName) {
+                if ($continuumName == $targetName2) {
                     // Extraction de toutes les données pour le nom correspondant
                     foreach ($data as $key => $value) {
                         echo $key . ": " . $value . "<br>";
@@ -86,7 +87,7 @@
             foreach ($data4 as $data) {
                 $continuumName = $data["ContinuumName"];
 
-                if ($continuumName == $targetName) {
+                if ($continuumName == $targetName2) {
                     // Extraction de toutes les données pour le nom correspondant
                     foreach ($data as $key => $value) {
                         echo $key . ": " . $value . "<br>";

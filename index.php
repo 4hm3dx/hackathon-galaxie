@@ -12,10 +12,6 @@
 
     <!-- Liens vers les fichiers JS -->
     <script src="js/app.js" defer></script>
-    <script src="json/221410_A.json" defer></script>
-    <script src="json/221410_B.json" defer></script>
-    <script src="json/244138_A.json" defer></script>
-    <script src="json/244138_B.json" defer></script>
 
     <title>Document</title>
 </head>
@@ -26,8 +22,34 @@
     $jsonString2 = file_get_contents('json/221410_B.json');
     $jsonString3 = file_get_contents('json/244138_A.json');
     $jsonString4 = file_get_contents('json/244138_B.json');
-    ?>
 
+    $data1 = json_decode($jsonString1, true);
+    $data2 = json_decode($jsonString2, true);
+    $data3 = json_decode($jsonString3, true);
+    $data4 = json_decode($jsonString4, true);
+
+    $targetName = "ssp_25Myr_z008.dat"; // Le nom recherché
+    
+    foreach ($data1 as $data) {
+
+        $continuumName = $data["ContinuumName"];
+
+        if ($continuumName == $targetName) {
+            // Extraction de toutes les données pour le nom correspondant
+            foreach ($data as $key => $value) {
+                echo $key . ": " . $value . "<br>";
+            }
+
+
+            break;
+        }
+    }
+
+
+    // var_dump($data1);
+    
+
+    ?>
 
 </body>
 

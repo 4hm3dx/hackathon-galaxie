@@ -28,7 +28,9 @@
     $data2 = json_decode($jsonString2, true);
     $data3 = json_decode($jsonString3, true);
     $data4 = json_decode($jsonString4, true);
+
     // liste des tableaux en fonction du redshift, et des continuumName
+    
     $targetName = "0.8182060549";
     $targetName2 = "1.91756782"; // Le nom recherché
     ?>
@@ -163,9 +165,9 @@
                     foreach ($data2 as $tableau2) {
                         if ($tableau1["Redshift"] == $tableau2["Redshift"]) {
                             // Vérifier si les données ne sont pas NULL
-                            if ($tableau1["Valeur1"] !== NULL && $tableau2["Valeur2"] !== NULL) {
-                                $diff_relative = ($tableau1["Valeur1"] - $tableau2["Valeur2"]) / $tableau2["Valeur2"];
-                                $diff_absolue = abs($tableau1["Valeur1"] - $tableau2["Valeur2"]) / $tableau2["Valeur2"];
+                            if ($tableau1["ContinuumName"] !== NULL && $tableau2["ContinuumName"] !== NULL) {
+                                $diff_relative = ($tableau1[""] - $tableau2[""]) / $tableau2[""];
+                                $diff_absolue = abs($tableau1[""] - $tableau2[""]) / $tableau2[""];
 
                                 if ($diff_absolue > $seuil) {
                                     // La différence absolue dépasse le seuil, faire quelque chose
@@ -173,8 +175,8 @@
 
                                 // Ajouter les données calculées au tableau $newdata12
                                 $newdata12[] = array(
-                                    "Valeur1" => $tableau1["Valeur1"],
-                                    "Valeur2" => $tableau2["Valeur2"],
+                                    "Valeur1" => $tableau1["ContinuumName"],
+                                    "Valeur2" => $tableau2["ContinuumName"],
                                     "DifferenceRelative" => $diff_relative,
                                     "DifferenceAbsolue" => $diff_absolue
                                 );
@@ -185,9 +187,9 @@
 
                 foreach ($data3 as $tableau3) {
                     foreach ($data4 as $tableau4) {
-                        if ($tableau3["Redshift"] == $tableau4["Redshift"]) {
+                        if ($tableau3["ContinuumName"] == $tableau4["ContinuumName"]) {
                             // Vérifier si les données ne sont pas NULL
-                            if ($tableau3["Valeur1"] !== NULL && $tableau4["Valeur2"] !== NULL) {
+                            if ($tableau3["ContinuumName"] !== NULL && $tableau4["ContinuumName"] !== NULL) {
                                 $diff_relative = ($tableau3["Valeur1"] - $tableau4["Valeur2"]) / $tableau4["Valeur2"];
                                 $diff_absolue = abs($tableau3["Valeur1"] - $tableau4["Valeur2"]) / $tableau4["Valeur2"];
 
@@ -197,8 +199,8 @@
 
                                 // Ajouter les données calculées au tableau $newdata34
                                 $newdata34[] = array(
-                                    "Valeur1" => $tableau3["Valeur1"],
-                                    "Valeur2" => $tableau4["Valeur2"],
+                                    "ContinuumName1" => $tableau3["ContinuumName"],
+                                    "ContinuumName2" => $tableau4["ContinuumName"],
                                     "DifferenceRelative" => $diff_relative,
                                     "DifferenceAbsolue" => $diff_absolue
                                 );

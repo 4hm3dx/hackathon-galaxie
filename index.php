@@ -10,8 +10,9 @@
     <link href="https://unpkg.com/tabulator-tables@5.5.0/dist/css/tabulator.min.css" rel="stylesheet">
     <script src="https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
 
-    <!-- Liens vers les fichiers JS -->
+    <!-- Liens vers les fichiers JS et CSS-->
     <script src="js/app.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
 
     <title>Document</title>
 </head>
@@ -29,27 +30,41 @@
     $data4 = json_decode($jsonString4, true);
 
     $targetName = "ssp_25Myr_z008.dat"; // Le nom recherché
-    
-    foreach ($data1 as $data) {
-
-        $continuumName = $data["ContinuumName"];
-
-        if ($continuumName == $targetName) {
-            // Extraction de toutes les données pour le nom correspondant
-            foreach ($data as $key => $value) {
-                echo $key . ": " . $value . "<br>";
-            }
-
-
-            break;
-        }
-    }
-
-
-    // var_dump($data1);
-    
-
     ?>
+
+    <section id="tab">
+        <div id="firstab">
+            <?php
+            foreach ($data1 as $data) {
+                $continuumName = $data["ContinuumName"];
+
+                if ($continuumName == $targetName) {
+                    // Extraction de toutes les données pour le nom correspondant
+                    foreach ($data as $key => $value) {
+                        echo $key . ": " . $value . "<br>";
+                    }
+                    break;
+                }
+            }
+            ?>
+        </div>
+        <div id="secondtab">
+            <?php
+            foreach ($data2 as $data) {
+                $continuumName = $data["ContinuumName"];
+
+                if ($continuumName == $targetName) {
+                    // Extraction de toutes les données pour le nom correspondant
+                    foreach ($data as $key => $value) {
+                        echo $key . ": " . $value . "<br>";
+                    }
+                    break;
+                }
+            }
+            ?>
+        </div>
+    </section>
+
 
 </body>
 
